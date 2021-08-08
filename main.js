@@ -36,9 +36,18 @@ function changeArraySize() {
     renewArray();
 }
 function startBubblesort() {
-    //let cleanArray = bubbleSortSlow(values)
-    let cleanArray = quicksort(values, 0, values.length - 1)
-    draw(cleanArray);
+    //let sortedArray = bubbleSortSlow(values)
+    let sortedArray = bubbleSort(values)
+    draw(sortedArray);
+}
+function startQuicksort() {
+    let sortedArray = quickSort(values, 0, values.length - 1);
+    draw(sortedArray);
+}
+function startMergesort() {
+    let sortedArray = mergeSort(values);
+    console.log(sortedArray)
+    draw(sortedArray);
 }
 
 

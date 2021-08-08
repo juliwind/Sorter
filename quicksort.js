@@ -1,23 +1,25 @@
-function quicksortChange(array, left, right) {
+/*function quicksortChange(array, left, right) {
     let pivot_number = Math.floor(array.length / 2);
     let pivot = array[pivot_number];
-    for (i = 0; i < pivot_number; i++) {
-        if (array[i] > pivot) {
-            let a = array[i];
-            for (j = array.length - 1; j > pivot; j--) {
-                if (array[j] < pivot) {
-                    let b = array[j];
-                    if (a <= b) {
-                        array[i] = b;
-                        array[j] = a;
-                        i++
-                        j--
-                    }
-                }
-            }
+
+    while (left <= right) {
+        while (array[left] < pivot) {
+            left++;
+        }
+        while (array[right] > pivot) {
+            right--;
+        }
+        if (left <= right) {
+            // SWITCH
+            a = array[left];
+            b = array[right];
+            array[left] = b;
+            array[right] = a;
+            left++;
+            right--;
         }
     }
-    return i;
+    return left;
 }
 
 function quicksort(array, left, right) {
@@ -28,6 +30,40 @@ function quicksort(array, left, right) {
         }
         if (right > sort) {
             quicksort(array, sort, right);
+        }
+    }
+    return array;
+}
+*/
+function quicksortChange(array, left, right) {
+    let pivot   = array[Math.floor((right + left) / 2)]
+    while (left <= right) {
+        while (array[left] < pivot) {
+            left++;
+        }
+        while (array[right] > pivot) {
+            right--;
+        }
+        if (left <= right) {
+            let a = array[left];
+            let b = array[right];
+            array[left] = b;
+            array[right] = a;
+            left++;
+            right--;
+        }
+    }
+    return left;
+}
+
+function quickSort(array, left, right) {
+    if (array.length > 1) {
+        let operator = quicksortChange(array, left, right); //index returned from partition
+        if (left < operator - 1) { //more elements on the left side of the pivot
+            quickSort(array, left, operator - 1);
+        }
+        if (right > operator) { //more elements on the right side of the pivot
+            quickSort(array, operator, right);
         }
     }
     return array;
