@@ -35,10 +35,12 @@ function changeArraySize() {
     values = []
     renewArray();
 }
-function startSort() {
-    let cleanArray = bubbleSortSlow(values);
+function startBubblesort() {
+    //let cleanArray = bubbleSortSlow(values)
+    let cleanArray = quicksort(values, 0, values.length - 1)
     draw(cleanArray);
 }
+
 
 function renewArray() {
     for (i = 0; i < arraySize; i++) {
