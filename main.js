@@ -32,7 +32,7 @@ function draw(array) {
 }
 function changeArraySize() {
     arraySize = prompt("How many pillars to sort?", );
-    values = []
+    values = [];
     renewArray();
 }
 function startBubblesort() {
@@ -42,9 +42,11 @@ function startBubblesort() {
 }
 function startQuicksort() {
     let sortedArray = quickSort(values, 0, values.length - 1);
+    //console.log("sorted", sortedArray)
     draw(sortedArray);
 }
 function startMergesort() {
+    console.log(values)
     let sortedArray = mergeSort(values);
     console.log(sortedArray)
     draw(sortedArray);
