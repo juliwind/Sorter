@@ -10,7 +10,6 @@ function init() {
 }
 
 function draw(array) {
-    console.log("DRAW")
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     //LINE
     ctx.beginPath();
@@ -18,10 +17,6 @@ function draw(array) {
     ctx.moveTo(50, 550);
     ctx.lineTo(1250, 550);
     ctx.stroke();
-
-    for (i = 0; i < array.length; i++) {
-        console.log(array[i]);
-    }
 
     for(i = 0; i < array.length; i++) {
         let width = 1200 / arraySize / 2;
@@ -44,7 +39,6 @@ function changeArraySize() {
 function startBubblesort() {
     //let sortedArray = bubbleSortSlow(values)
     let sortedArray = bubbleSort(values)
-    console.log(sortedArray)
     draw(sortedArray);
 }
 function startQuicksort() {
@@ -55,9 +49,13 @@ function startQuicksort() {
 function startMergesort() {
     //console.log(values)
     let sortedArray = mergeSort(values);
-    console.log(sortedArray)
     draw(sortedArray);
     //console.log("sdajn")
+}
+function startInsertionsort() {
+    let sortedArray = insertionSort(values);
+    console.log("sortedArray", sortedArray)
+    draw(sortedArray);
 }
 
 
