@@ -24,7 +24,8 @@ function merge(array_left, array_right) {
             right_pointer++
         }
     }
-return new_array
+    
+    return new_array
         .concat(array_left.slice(left_pointer))
         .concat(array_right.slice(right_pointer));
 }

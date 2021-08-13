@@ -10,6 +10,7 @@ function init() {
 }
 
 function draw(array) {
+    console.log("DRAW")
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     //LINE
     ctx.beginPath();
@@ -17,6 +18,10 @@ function draw(array) {
     ctx.moveTo(50, 550);
     ctx.lineTo(1250, 550);
     ctx.stroke();
+
+    for (i = 0; i < array.length; i++) {
+        console.log(array[i]);
+    }
 
     for(i = 0; i < array.length; i++) {
         let width = 1200 / arraySize / 2;
@@ -26,10 +31,11 @@ function draw(array) {
         ctx.beginPath();
         ctx.lineWidth = width
         ctx.moveTo(i / arraySize * 1200 + 50, 550);
-        ctx.lineTo(i / arraySize * 1200 + 50, 550 - values[i]);
+        ctx.lineTo(i / arraySize * 1200 + 50, 550 - array[i]);
         ctx.stroke();
     }
 }
+
 function changeArraySize() {
     arraySize = prompt("How many pillars to sort?", );
     values = [];
@@ -38,6 +44,7 @@ function changeArraySize() {
 function startBubblesort() {
     //let sortedArray = bubbleSortSlow(values)
     let sortedArray = bubbleSort(values)
+    console.log(sortedArray)
     draw(sortedArray);
 }
 function startQuicksort() {
@@ -46,10 +53,11 @@ function startQuicksort() {
     draw(sortedArray);
 }
 function startMergesort() {
-    console.log(values)
+    //console.log(values)
     let sortedArray = mergeSort(values);
     console.log(sortedArray)
     draw(sortedArray);
+    //console.log("sdajn")
 }
 
 
