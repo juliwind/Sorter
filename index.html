@@ -1,28 +1,39 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Sorting Algorithms</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <button id="startbubble" class="buttons" onclick="startBubblesort();">Start sorting with Bubblesort!</button>
-        <button id="startquick" class="buttons" onclick="startQuicksort();">Start sorting with Quicksort!</button>
-        <button id="startmerge" class="buttons" onclick="startMergesort();">Start sorting with Mergesort!</button>
-        <button id="startinsertion" class="buttons" onclick="startInsertionsort();">Start sorting with Insertion sort!</button>
-        <button id="changeSize" class="buttons" onclick="changeArraySize();">Change Number of Array</button>
-        <button id="randomize" class="buttons" onclick="randomizeArray();">Randomize Array</button>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Sorting Algorithms Competition</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <div class="controls">
+            <div class="algorithm-selection">
+                <label><input type="checkbox" id="bubble" value="bubble" onchange="toggleSortContainer('bubble');"> Bubble Sort</label>
+                <label><input type="checkbox" id="quick" value="quick" onchange="toggleSortContainer('quick');"> Quick Sort</label>
+                <label><input type="checkbox" id="merge" value="merge" onchange="toggleSortContainer('merge');"> Merge Sort</label>
+                <label><input type="checkbox" id="insertion" value="insertion" onchange="toggleSortContainer('insertion');"> Insertion Sort</label>
+            </div>
+            <div class="button-group">
+                <button id="startSort" class="btn" onclick="startSelectedSorts();">Sortieren Starten</button>
+                <button id="changeSize" class="btn" onclick="changeArraySize();">Array Größe Ändern</button>
+                <button id="randomize" class="btn" onclick="randomizeArray();">Array Zufällig Anordnen</button>
+            </div>
+            <div class="speed-control">
+                <label for="speedRange">Geschwindigkeit:</label>
+                <input type="range" id="speedRange" min="1" max="1000" value="100">
+                <span id="speedValue">100ms</span>
+            </div>
+        </div>
 
-        <label for="speedRange">Speed:</label>
-        <input type="range" id="speedRange" min="1" max="1000" value="100">
-        <span id="speedValue">100ms</span>
-
-        <canvas id="canvas" width="1300" height="600"></canvas>
-
-        <script src="main.js" type="text/javascript"></script>
-        <script src="bubblesort.js" type="text/javascript"></script>
-        <script src="quicksort.js" type="text/javascript"></script>
-        <script src="mergesort.js" type="text/javascript"></script>
-        <script src="insertionsort.js" type="text/javascript"></script>
-    </body>
+        <div id="canvasContainer">
+        </div>
+    </main>
+    <script src="main.js"></script>
+    <script src="bubblesort.js"></script>
+    <script src="quicksort.js"></script>
+    <script src="mergesort.js"></script>
+    <script src="insertionsort.js"></script>
+</body>
 </html>

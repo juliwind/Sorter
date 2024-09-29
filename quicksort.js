@@ -1,4 +1,4 @@
-async function quicksortChange(array, left, right) {
+async function quicksortChange(array, left, right, draw) {
     let pivot = array[Math.floor((right + left) / 2)];
     while (left <= right) {
         while (array[left] < pivot) {
@@ -20,15 +20,11 @@ async function quicksortChange(array, left, right) {
     return left;
 }
 
-async function quickSort(array, left, right) {
-    if (array.length > 1) {
-        let operator = await quicksortChange(array, left, right);
-        if (left < operator - 1) {
-            await quickSort(array, left, operator - 1);
-        }
-        if (right > operator) {
-            await quickSort(array, operator, right);
-        }
+async function quickSort(array, left, right, draw) {
+    if (left < right) {
+        let operator = await quicksortChange(array, left, right, draw);
+        await quickSort(array, left, operator - 1, draw);
+        await quickSort(array, operator, right, draw);
     }
     draw(array);
 }

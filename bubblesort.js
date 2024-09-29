@@ -1,29 +1,20 @@
-async function bubbleSort(array) {
+async function bubbleSort(array, draw) {
     let n = array.length;
+    let swapped;
+
     for (let i = 0; i < n; i++) {
+        swapped = false;
         for (let j = 0; j < n - i -1; j++) {
             if (array[j] > array[j + 1]) {
                 let temp = array[j];
                 array[j] = array[j + 1];
                 array[j + 1] = temp;
-                draw(array, [j, j+1]);
+                swapped = true;
+                draw(array, [j, j + 1]);
                 await sleep(speed);
             }
         }
+        if (!swapped) break;
     }
     draw(array);
-} 
-
-async function bubbleSortSlow(array) {
-    for (let i = 0; i <= array.length; i++) {
-        if (array[i] > array[i + 1]) {
-            let a = array[i];
-            let b = array[i + 1];
-            array[i + 1] = a;
-            array[i] = b;
-            draw(array, [i, i+1]);
-            await sleep(speed);
-        }
-    }
-    return array;
 }
