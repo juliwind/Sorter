@@ -3,4 +3,8 @@
 }
 .buttons {
     height: 40px;
+    margin: 5px;
+}
+label, input {
+    margin: 5px;
 }
